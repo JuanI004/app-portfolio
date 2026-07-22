@@ -31,12 +31,12 @@ export default function Header() {
       </div>
 
       <div className="animate-fade-up absolute bottom-0 left-0 z-10 flex flex-col gap-4 p-15">
-        <p className="font-mono flex items-center gap-2 text-sm tracking-[0.3em] text-white/80 uppercase">
+        <p className="font-sans flex items-center gap-2 text-sm font-semibold tracking-wide text-white/80 uppercase">
           <span className="text-[#c9d5ff]">//</span> Ingeniero de Software
         </p>
 
         <h1 className="font-display text-[3.5rem] leading-[1.05] font-light text-white lg:text-[6rem]">
-          Juan Ignacio <span className="text-[#c9d5ff] italic">Gutierrez</span>
+          Juan Ignacio Gutierrez
         </h1>
 
         <p className="max-w-[600px] text-lg text-white/70">
@@ -46,7 +46,7 @@ export default function Header() {
       </div>
 
       <div className="animate-fade-up absolute right-15 bottom-15 z-10 hidden flex-col items-center gap-3 [animation-delay:300ms] lg:flex">
-        <span className="font-mono text-[0.65rem] tracking-widest text-white/50 uppercase [writing-mode:vertical-rl]">
+        <span className="font-sans text-xs font-semibold tracking-wide text-white/50 uppercase [writing-mode:vertical-rl]">
           Scroll
         </span>
         <span className="h-10 w-px animate-pulse bg-white/40" />

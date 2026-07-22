@@ -16,16 +16,31 @@ export const TECHS = [
     categoria: "Lenguaje",
   },
   {
-    id: "typescript",
-    nombre: "TypeScript",
+    id: "html",
+    nombre: "HTML5",
     iconoColor: {
       lib: "react-icons/si",
-      nombre: "SiTypescript",
+      nombre: "SiHtml5",
       color: "#3178C6",
     },
     iconoMono: {
       lib: "react-icons/si",
-      nombre: "SiTypescript",
+      nombre: "SiHtml5",
+      color: "#1A1A1A",
+    },
+    categoria: "Lenguaje",
+  },
+  {
+    id: "css",
+    nombre: "CSS3",
+    iconoColor: {
+      lib: "react-icons/si",
+      nombre: "SiCss3",
+      color: "#3178C6",
+    },
+    iconoMono: {
+      lib: "react-icons/fa",
+      nombre: "FaCss3",
       color: "#1A1A1A",
     },
     categoria: "Lenguaje",

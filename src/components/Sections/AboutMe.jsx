@@ -11,29 +11,17 @@ export default function AboutMe() {
   return (
     <section
       id="about"
-      className="relative w-full overflow-hidden border-b border-white/10 bg-[#00042c] py-28 text-white"
+      className="relative w-full overflow-hidden  bg-[#00042c] py-28 text-white"
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)",
-          backgroundSize: "26px 26px",
-        }}
       />
 
       <div className="relative mx-auto grid w-full max-w-[1100px] grid-cols-1 gap-16 px-15 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-0">
         <div className="relative">
-          <span
-            aria-hidden="true"
-            className="font-display pointer-events-none absolute -top-16 -left-4 select-none text-[11rem] leading-none text-white/[0.05] lg:-top-20 lg:text-[14rem]"
-          >
-            01
-          </span>
-
           <div className="animate-fade-up relative">
-            <p className="font-mono mb-6 flex items-center gap-2 text-sm uppercase tracking-[0.3em] text-[#8fa4ef]">
+            <p className="font-sans mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-[#8fa4ef]">
               <span className="text-[#6988ec]">//</span> Sobre mí
             </p>
 
@@ -54,7 +42,7 @@ export default function AboutMe() {
               problemas que me tocó resolver últimamente.
             </p>
 
-            <dl className="font-mono mt-10 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm">
+            <dl className="font-sans mt-10 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm">
               {FACTS.map((fact) => (
                 <div key={fact.key} className="flex gap-4">
                   <dt className="w-24 shrink-0 text-white/35">{fact.key}</dt>

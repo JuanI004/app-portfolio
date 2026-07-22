@@ -23,25 +23,22 @@ const SECTIONS = [
 
 export default function NavBar() {
   return (
-    <nav className="fixed top-5 left-1/2 z-50 w-[calc(100%-2.5rem)] max-w-3xl -translate-x-1/2 rounded-full border border-white/10 bg-[#02040f]/80 px-3 py-3 shadow-2xl backdrop-blur-md">
-      <div className="flex items-center justify-between gap-6">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-[#02040f]/60 to-transparent ">
+      <div className="flex items-center justify-between px-8 py-5 lg:px-14">
         <a
           href="#"
-          className="font-display shrink-0 rounded-full bg-gradient-to-br from-[#6988ec] to-[#1a2a63] px-4 py-1.5 text-lg font-semibold text-white italic"
+          className="font-display text-xl font-semibold text-white italic"
         >
           JIG
         </a>
 
-        <ul className="font-mono hidden items-center gap-7 text-xs tracking-widest text-white/60 uppercase md:flex">
-          {SECTIONS.map((section, index) => (
+        <ul className="hidden items-center gap-10 md:flex">
+          {SECTIONS.map((section) => (
             <li key={section.id}>
               <a
                 href={section.href}
-                className="group inline-flex items-center gap-1.5 transition-colors duration-200 hover:text-white"
+                className="font-sans text-sm font-semibold tracking-wide text-white/60 uppercase transition-colors duration-200 hover:text-white"
               >
-                <span className="text-[#6988ec]/70 transition-colors duration-200 group-hover:text-[#6988ec]">
-                  0{index + 1}
-                </span>
                 {section.name}
               </a>
             </li>
@@ -50,9 +47,9 @@ export default function NavBar() {
 
         <a
           href="#contact"
-          className="font-mono shrink-0 rounded-full bg-[#6988ec] px-5 py-2 text-xs font-medium tracking-widest text-[#02040f] uppercase transition-colors duration-200 hover:bg-white"
+          className="font-sans text-sm font-semibold tracking-wide text-white/80 uppercase transition-colors duration-200 hover:text-white"
         >
-          Hablemos
+          Contacto
         </a>
       </div>
     </nav>
