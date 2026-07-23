@@ -10,6 +10,7 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem("lang", lang);
+    document.documentElement.lang = lang;
   }, [lang]);
 
   return (

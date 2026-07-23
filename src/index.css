@@ -32,3 +32,26 @@
 body {
   font-family: var(--font-sans);
 }
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #6988ec #02040f;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #02040f;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6988ec;
+  border-radius: 999px;
+  border: 3px solid #02040f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8fa4ef;
+}
