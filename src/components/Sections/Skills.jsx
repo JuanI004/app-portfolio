@@ -1,13 +1,10 @@
 import * as SiIcons from "react-icons/si";
 import { FaCss3 } from "react-icons/fa";
 import { TECHS } from "../../utils/techs";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../i18n/translations";
 
 const CATEGORY_ORDER = ["Lenguaje", "Framework", "Herramienta"];
-const CATEGORY_LABELS = {
-  Lenguaje: "Lenguajes",
-  Framework: "Frameworks",
-  Herramienta: "Herramientas",
-};
 
 const groupByCategory = (techs) =>
   techs.reduce((groups, tech) => {
@@ -16,6 +13,8 @@ const groupByCategory = (techs) =>
   }, {});
 
 export default function Skills() {
+  const { lang } = useLanguage();
+  const t = translations[lang].skills;
   const grouped = groupByCategory(TECHS);
   const categories = CATEGORY_ORDER.filter((categoria) => grouped[categoria]);
 
@@ -33,11 +32,14 @@ export default function Skills() {
         <div className="animate-fade-up relative grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
             <p className="font-sans mb-5 flex items-center gap-2 text-sm font-semibold tracking-wide text-[#dde4ff] uppercase">
-              <span className="text-white">//</span> Skills
+              <span className="text-white">//</span> {t.eyebrow}
             </p>
             <h2 className="font-display text-4xl leading-[1.15] font-light lg:text-5xl">
-              Con lo que{" "}
-              <em className="font-normal text-[#dde4ff] italic">trabajo</em>.
+              {t.headlinePre}
+              <em className="font-normal text-[#dde4ff] italic">
+                {t.headlineEm}
+              </em>
+              {t.headlinePost}
             </h2>
           </div>
 
@@ -45,7 +47,7 @@ export default function Skills() {
             {categories.map((categoria) => (
               <div key={categoria}>
                 <h3 className="font-sans mb-5 text-left text-xs font-semibold tracking-wide text-white/50 uppercase">
-                  {CATEGORY_LABELS[categoria] ?? categoria}
+                  {t.categories[categoria] ?? categoria}
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {grouped[categoria].map((tech) => {

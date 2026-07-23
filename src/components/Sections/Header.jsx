@@ -1,6 +1,11 @@
 import Grainient from "../Grainient/Grainient";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../i18n/translations";
 
 export default function Header() {
+  const { lang } = useLanguage();
+  const t = translations[lang].header;
+
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -32,22 +37,19 @@ export default function Header() {
 
       <div className="animate-fade-up absolute bottom-0 left-0 z-10 flex flex-col gap-4 p-15">
         <p className="font-sans flex items-center gap-2 text-sm font-semibold tracking-wide text-white/80 uppercase">
-          <span className="text-[#c9d5ff]">//</span> Desarrollador de Software
+          <span className="text-[#c9d5ff]">//</span> {t.eyebrow}
         </p>
 
         <h1 className="font-display text-[3.5rem] leading-[1.05] font-light text-white lg:text-[6rem]">
           Juan Ignacio Gutierrez
         </h1>
 
-        <p className="max-w-[600px] text-lg text-white/70">
-          Estudiante de Ingeniería en Computación. Construyo aplicaciones
-          web completas, desde el diseño hasta el código en producción.
-        </p>
+        <p className="max-w-[600px] text-lg text-white/70">{t.subtitle}</p>
       </div>
 
       <div className="animate-fade-up absolute right-15 bottom-15 z-10 hidden flex-col items-center gap-3 [animation-delay:300ms] lg:flex">
         <span className="font-sans text-xs font-semibold tracking-wide text-white/50 uppercase [writing-mode:vertical-rl]">
-          Scroll
+          {t.scroll}
         </span>
         <span className="h-10 w-px animate-pulse bg-white/40" />
       </div>

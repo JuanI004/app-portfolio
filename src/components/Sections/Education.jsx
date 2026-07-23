@@ -1,11 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SiUdemy } from "react-icons/si";
-
-const EDUCATION = {
-  title: "Ingeniero en Computación",
-  subtitle: "Facultad de Ingeniería · Udelar",
-  date: "Feb. 2023 — 2028",
-};
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../i18n/translations";
 
 const CERTIFICATIONS = [
   {
@@ -56,15 +52,23 @@ const CERTIFICATIONS = [
   },
 ];
 
-const TIMELINE = [
-  { ...EDUCATION, issuer: EDUCATION.subtitle, primary: true },
-  ...CERTIFICATIONS,
-];
-
 export default function Education() {
+  const { lang } = useLanguage();
+  const t = translations[lang].education;
+
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
   const [offset, setOffset] = useState(0);
+
+  const timeline = [
+    {
+      title: t.degree.title,
+      issuer: t.degree.subtitle,
+      date: "Feb. 2023 — 2028",
+      primary: true,
+    },
+    ...CERTIFICATIONS,
+  ];
 
   useEffect(() => {
     const update = () => {
@@ -105,11 +109,14 @@ export default function Education() {
 
         <div className="relative mx-auto mb-14 w-full max-w-[1100px] px-15 lg:px-0">
           <p className="font-sans mb-5 flex items-center gap-2 text-sm font-semibold tracking-wide text-[#8fa4ef] uppercase">
-            <span className="text-[#6988ec]">//</span> Educación
+            <span className="text-[#6988ec]">//</span> {t.eyebrow}
           </p>
           <h2 className="font-display text-4xl leading-[1.15] font-light lg:text-5xl">
-            Formación{" "}
-            <em className="font-normal text-[#8fa4ef] italic">continua</em>.
+            {t.headlinePre}
+            <em className="font-normal text-[#8fa4ef] italic">
+              {t.headlineEm}
+            </em>
+            {t.headlinePost}
           </h2>
         </div>
 
@@ -120,7 +127,7 @@ export default function Education() {
               transform: `translateX(${-offset}px)`,
             }}
           >
-            {TIMELINE.map((item, index) => (
+            {timeline.map((item, index) => (
               <div key={item.title} className="relative w-80 shrink-0 pr-10">
                 <div className="relative flex items-center">
                   <div
@@ -132,7 +139,7 @@ export default function Education() {
                   >
                     {item.icon ? <item.icon size={16} /> : (item.badge ?? "•")}
                   </div>
-                  {index < TIMELINE.length - 1 && (
+                  {index < timeline.length - 1 && (
                     <div className="h-px flex-1 bg-white/10" />
                   )}
                 </div>
@@ -160,7 +167,7 @@ export default function Education() {
 
         <div className="relative mx-auto mt-14 w-full max-w-[1100px] px-15 lg:px-0">
           <p className="font-sans flex items-center gap-2 text-xs font-semibold tracking-wide text-white/40 uppercase">
-            Seguí scrolleando
+            {t.scrollHint}
             <span className="inline-block h-px w-10 bg-white/30" />
           </p>
         </div>

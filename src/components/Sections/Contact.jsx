@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Mail, X } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa6";
 import { SiGithub } from "react-icons/si";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../i18n/translations";
 
 const EMAIL = "jigutierrez004@gmail.com";
 
@@ -20,7 +22,7 @@ const CONTACT_LINKS = [
   },
 ];
 
-function EmailModal({ onClose }) {
+function EmailModal({ onClose, t }) {
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   useEffect(() => {
@@ -43,7 +45,7 @@ function EmailModal({ onClose }) {
           name: form.nombre.value,
           email: form.email.value,
           message: form.mensaje.value,
-          _subject: `Contacto desde el portfolio — ${form.nombre.value}`,
+          _subject: `${t.subjectPrefix} — ${form.nombre.value}`,
         }),
       });
       if (!res.ok) throw new Error("send failed");
@@ -61,14 +63,14 @@ function EmailModal({ onClose }) {
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="Enviame un correo"
+        aria-label={`${t.titlePre}${t.titleEm}${t.titlePost}`}
         className="relative w-full max-w-lg rounded-3xl border border-white/10 bg-[#00042c] p-8 text-left shadow-2xl lg:p-10"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           onClick={onClose}
-          aria-label="Cerrar"
+          aria-label={t.close}
           className="absolute top-5 right-5 text-white/50 transition-colors duration-150 hover:text-white"
         >
           <X size={20} />
@@ -77,74 +79,72 @@ function EmailModal({ onClose }) {
         {status === "success" ? (
           <div className="py-10 text-center">
             <h3 className="font-display text-3xl font-light">
-              Mensaje <em className="text-[#8fa4ef] italic">enviado</em>.
+              {t.successTitlePre}
+              <em className="text-[#8fa4ef] italic">{t.successTitleEm}</em>
+              {t.successTitlePost}
             </h3>
-            <p className="mt-4 text-white/60">
-              Gracias por escribirme, te respondo a la brevedad.
-            </p>
+            <p className="mt-4 text-white/60">{t.successBlurb}</p>
             <button
               type="button"
               onClick={onClose}
               className="font-sans mt-8 rounded-full border border-white/15 bg-white/5 px-6 py-2.5 text-sm font-medium text-white/80 transition-all duration-150 hover:border-[#6988ec] hover:text-white"
             >
-              Cerrar
+              {t.close}
             </button>
           </div>
         ) : (
           <>
             <h3 className="font-display text-3xl font-light">
-              Enviame un{" "}
-              <em className="font-normal text-[#8fa4ef] italic">correo</em>.
+              {t.titlePre}
+              <em className="font-normal text-[#8fa4ef] italic">
+                {t.titleEm}
+              </em>
+              {t.titlePost}
             </h3>
-            <p className="mt-2 text-sm text-white/50">
-              Completá el formulario y me llega directo a {EMAIL}.
-            </p>
+            <p className="mt-2 text-sm text-white/50">{t.subtitle(EMAIL)}</p>
 
             <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
               <label className="flex flex-col gap-2">
                 <span className="font-sans text-xs font-semibold tracking-wide text-white/60 uppercase">
-                  Tu nombre
+                  {t.nameLabel}
                 </span>
                 <input
                   name="nombre"
                   type="text"
                   required
-                  placeholder="Nombre y apellido"
+                  placeholder={t.namePlaceholder}
                   className="rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder-white/30 outline-none transition-colors duration-150 focus:border-[#6988ec]"
                 />
               </label>
 
               <label className="flex flex-col gap-2">
                 <span className="font-sans text-xs font-semibold tracking-wide text-white/60 uppercase">
-                  Tu email
+                  {t.emailLabel}
                 </span>
                 <input
                   name="email"
                   type="email"
                   required
-                  placeholder="tu@email.com"
+                  placeholder={t.emailPlaceholder}
                   className="rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder-white/30 outline-none transition-colors duration-150 focus:border-[#6988ec]"
                 />
               </label>
 
               <label className="flex flex-col gap-2">
                 <span className="font-sans text-xs font-semibold tracking-wide text-white/60 uppercase">
-                  Mensaje
+                  {t.messageLabel}
                 </span>
                 <textarea
                   name="mensaje"
                   required
                   rows={4}
-                  placeholder="Contame sobre tu proyecto o propuesta..."
+                  placeholder={t.messagePlaceholder}
                   className="resize-none rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder-white/30 outline-none transition-colors duration-150 focus:border-[#6988ec]"
                 />
               </label>
 
               {status === "error" ? (
-                <p className="text-sm text-red-400">
-                  No se pudo enviar el mensaje. Probá de nuevo o escribime
-                  directo a {EMAIL}.
-                </p>
+                <p className="text-sm text-red-400">{t.errorMsg(EMAIL)}</p>
               ) : null}
 
               <button
@@ -152,7 +152,7 @@ function EmailModal({ onClose }) {
                 disabled={status === "sending"}
                 className="font-sans mt-2 rounded-full bg-[#6988ec] px-6 py-3 text-sm font-semibold tracking-wide text-[#02040f] uppercase transition-all duration-150 hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+                {status === "sending" ? t.sending : t.send}
               </button>
             </form>
           </>
@@ -163,6 +163,8 @@ function EmailModal({ onClose }) {
 }
 
 export default function Contact() {
+  const { lang } = useLanguage();
+  const t = translations[lang].contact;
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -178,15 +180,17 @@ export default function Contact() {
       <div className="relative mx-auto w-full max-w-[1100px] px-15 text-center lg:px-0">
         <div className="animate-fade-up relative">
           <p className="font-sans mb-5 flex items-center justify-center gap-2 text-sm font-semibold tracking-wide text-[#8fa4ef] uppercase">
-            <span className="text-[#6988ec]">//</span> Contacto
+            <span className="text-[#6988ec]">//</span> {t.eyebrow}
           </p>
           <h2 className="font-display text-4xl leading-[1.15] font-light lg:text-6xl">
-            Trabajemos{" "}
-            <em className="font-normal text-[#8fa4ef] italic">juntos</em>.
+            {t.headlinePre}
+            <em className="font-normal text-[#8fa4ef] italic">
+              {t.headlineEm}
+            </em>
+            {t.headlinePost}
           </h2>
           <p className="mx-auto mt-6 max-w-lg text-lg text-white/60">
-            ¿Tenés un proyecto en mente o una oportunidad para charlar?
-            Escribime, siempre estoy abierto a nuevas conversaciones.
+            {t.blurb}
           </p>
         </div>
 
@@ -219,7 +223,9 @@ export default function Contact() {
         </p>
       </div>
 
-      {modalOpen ? <EmailModal onClose={() => setModalOpen(false)} /> : null}
+      {modalOpen ? (
+        <EmailModal onClose={() => setModalOpen(false)} t={t.modal} />
+      ) : null}
     </section>
   );
 }

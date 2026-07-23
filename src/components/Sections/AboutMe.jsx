@@ -1,15 +1,11 @@
 import imgPerfil from "../../assets/imgPerfil.webp";
-
-const FACTS = [
-  { key: "rol", value: "Desarrollador de Software" },
-  { key: "formación", value: "Ing. en Computación, Udelar" },
-  { key: "stack", value: "Next.js / Tailwind CSS / Supabase" },
-  { key: "inglés", value: "Avanzado (C2), Univ. of Michigan" },
-  { key: "ubicación", value: "Montevideo, Uruguay" },
-  { key: "estado", value: "Buscando primera experiencia" },
-];
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../i18n/translations";
 
 export default function AboutMe() {
+  const { lang } = useLanguage();
+  const t = translations[lang].about;
+
   return (
     <section
       id="about"
@@ -24,30 +20,23 @@ export default function AboutMe() {
         <div className="relative">
           <div className="animate-fade-up relative">
             <p className="font-sans mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-[#8fa4ef]">
-              <span className="text-[#6988ec]">//</span> Sobre mí
+              <span className="text-[#6988ec]">//</span> {t.eyebrow}
             </p>
 
             <h2 className="font-display text-4xl leading-[1.15] font-light lg:text-5xl">
-              Convierto ideas en{" "}
+              {t.headlinePre}
               <em className="font-normal text-[#8fa4ef] italic">
-                interfaces claras
-              </em>{" "}
-              y funcionales.
+                {t.headlineEm}
+              </em>
+              {t.headlinePost}
             </h2>
 
             <p className="mt-8 max-w-xl text-lg leading-8 text-white/60">
-              Soy estudiante de Ingeniería en Computación en la Universidad de
-              la República y desarrollador de software. Mi formación académica
-              me dio las bases; el resto lo construí de forma autodidacta, con
-              cursos, documentación y proyectos propios que me permitieron
-              trabajar tanto en frontend con React y Next.js como en backend
-              con Node.js. Estoy abierto a distintos roles dentro del
-              desarrollo y busco dar el salto a mi primera experiencia
-              profesional en la industria.
+              {t.paragraph}
             </p>
 
             <dl className="font-sans mt-10 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm">
-              {FACTS.map((fact) => (
+              {t.facts.map((fact) => (
                 <div key={fact.key} className="flex gap-4">
                   <dt className="w-28 shrink-0 text-white/35">{fact.key}</dt>
                   <dd className="text-white/80">
