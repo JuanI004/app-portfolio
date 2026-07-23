@@ -13,7 +13,7 @@ import {
 import imgPlayRank from "../../assets/proyectoPlayRank.webp";
 import imgPlayRank2 from "../../assets/proyectoPlayRank2.webp";
 import imgQuestLog from "../../assets/proyectoQuestLog.webp";
-import imgQuestLog2 from "../../assets/proyectoQuestLog2.webp";
+import imgQuestLog2 from "../../assets/proyectoQuestLog2.png";
 import imgIronFuel from "../../assets/proyectoIronFuel.webp";
 import imgIronFuel2 from "../../assets/proyectoIronFuel2.webp";
 import imgReservApp from "../../assets/proyectoReservApp.webp";
@@ -22,68 +22,6 @@ import imgReservApp2 from "../../assets/proyectoReservApp2.webp";
 const projects = [
   {
     id: 1,
-    type: "APP MÓVIL",
-    title: "PlayRank",
-    description:
-      "Aplicación para ratear y descubrir videojuegos, con rankings comunitarios y perfiles de jugador.",
-    tech: [
-      { name: "React", icon: SiReact },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Node Js", icon: SiNodedotjs },
-      { name: "MongoDB", icon: SiMongodb },
-    ],
-    images: [imgPlayRank, imgPlayRank2],
-    githubUrl: "https://github.com/JuanI004/app-playRank",
-    liveUrl: "https://app-play-rank.vercel.app",
-    imageLabel: "capturas de PlayRank",
-    longDescription:
-      "Rateá tus juegos favoritos, armá tu Top 5, descubrí qué jugar según tu mood y encontrá los mejores precios. Toda la data de juegos sale de la API de RAWG, y el comparador de precios cruza tiendas como Steam, GOG y Epic en tiempo real.",
-    features: [
-      "Explorar juegos con filtros por género y plataforma, ordenados por metacritic, rating o fecha",
-      "Página de cada juego con descripción, screenshots, trailer y tags",
-      "Sistema de rating de 1 a 5 estrellas con persistencia local",
-      "Playlist de favoritos con estadísticas personales",
-      "Top 5 personal reordenable",
-      "Comparador de precios entre Steam, GOG, Epic y más tiendas",
-    ],
-    stack: [
-      "React 19",
-      "Vite",
-      "Tailwind CSS v4",
-      "TanStack Query v5",
-      "React Router v7",
-      "RAWG API",
-      "CheapShark API",
-    ],
-  },
-  {
-    id: 2,
-    type: "EDTECH",
-    title: "QuestLog",
-    description:
-      "Plataforma que gamifica el estudio: convierte tus materias en misiones, niveles y recompensas.",
-    tech: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Supabase", icon: SiSupabase },
-    ],
-    images: [imgQuestLog, imgQuestLog2],
-    githubUrl: "https://github.com/JuanI004/app-questlog",
-    liveUrl: "https://app-questlog.vercel.app",
-    imageLabel: "capturas de QuestLog",
-    longDescription:
-      "Cada sesión de estudio es una misión, cada materia es un desafío y cada día que estudiás suma a tu racha. A medida que progresás subís de nivel, desbloqueás títulos y ganás monedas para gastar en la tienda.",
-    features: [
-      "Sesiones de estudio que dan XP y monedas, con racha diaria y multiplicadores",
-      "Sistema de niveles calculado automáticamente en la base de datos",
-      "Onboarding RPG: elegís avatar y arquetipo (Caballero del Saber, Mago del Conocimiento o Elfo Explorador)",
-      "Árbol de 15 habilidades que cambian cómo jugás: más XP, rachas más fuertes, bonus de monedas",
-      "Flashcards y trivia con recompensas extra",
-    ],
-    stack: ["Next.js 14 (App Router)", "Tailwind CSS", "Supabase (Auth + DB + Storage)"],
-  },
-  {
-    id: 3,
     type: "E-COMMERCE",
     title: "IronFuel",
     description:
@@ -116,11 +54,80 @@ const projects = [
     ],
   },
   {
+    id: 2,
+    type: "EDTECH",
+    title: "QuestLog",
+    description:
+      "Plataforma que gamifica el estudio: convierte tus materias en misiones, niveles y recompensas.",
+    tech: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Supabase", icon: SiSupabase },
+    ],
+    images: [imgQuestLog, imgQuestLog2],
+    githubUrl: "https://github.com/JuanI004/app-questlog",
+    liveUrl: "https://app-questlog.vercel.app",
+    imageLabel: "capturas de QuestLog",
+    longDescription:
+      "Cada sesión de estudio es una misión, cada materia es un desafío y cada día que estudiás suma a tu racha. A medida que progresás subís de nivel, desbloqueás títulos y ganás monedas para gastar en la tienda.",
+    features: [
+      "Sesiones de estudio que dan XP y monedas, con racha diaria y multiplicadores",
+      "Sistema de niveles calculado automáticamente en la base de datos",
+      "Onboarding RPG: elegís avatar y arquetipo (Caballero del Saber, Mago del Conocimiento o Elfo Explorador)",
+      "Árbol de 15 habilidades que cambian cómo jugás: más XP, rachas más fuertes, bonus de monedas",
+      "Flashcards y trivia con recompensas extra",
+    ],
+    stack: [
+      "Next.js 14 (App Router)",
+      "Tailwind CSS",
+      "Supabase (Auth + DB + Storage)",
+    ],
+  },
+  {
+    id: 3,
+    type: "GAMING",
+    title: "PlayRank",
+    description:
+      "Aplicación para ratear, descubrir nuevas experiencias y elegir tu videojuegos favoritos.",
+    tech: [
+      { name: "React", icon: SiReact },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Node Js", icon: SiNodedotjs },
+      { name: "MongoDB", icon: SiMongodb },
+    ],
+    images: [imgPlayRank, imgPlayRank2],
+    githubUrl: "https://github.com/JuanI004/app-playRank",
+    liveUrl: "https://app-play-rank.vercel.app",
+    imageLabel: "capturas de PlayRank",
+    longDescription:
+      "Rateá tus juegos favoritos, armá tu Top 5, descubrí qué jugar según tu mood y encontrá los mejores precios. Toda la data de juegos sale de la API de RAWG, y el comparador de precios cruza tiendas como Steam, GOG y Epic en tiempo real.",
+    features: [
+      "Explorar juegos con filtros por género y plataforma, ordenados por metacritic, rating o fecha",
+      "Página de cada juego con descripción, screenshots, trailer y tags",
+      "Sistema de rating de 1 a 5 estrellas con persistencia local",
+      "Playlist de favoritos con estadísticas personales",
+      "Top 5 personal reordenable",
+      "Comparador de precios entre Steam, GOG, Epic y más tiendas",
+    ],
+    stack: [
+      "React 19",
+      "Tailwind CSS v4",
+      "TanStack Query v5",
+      "React Router v7",
+      "RAWG API",
+      "CheapShark API",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+    ],
+  },
+  {
     id: 4,
     type: "SAAS",
     title: "ReservApp",
     description:
-      "Sistema de reserva de turnos para negocios de servicios — peluquerías, estudios, consultorios.",
+      "Sistema de reserva de turnos para negocios de servicios: peluquerías, estudios, consultorios.",
     tech: [
       { name: "Next.js", icon: SiNextdotjs },
       { name: "Tailwind CSS", icon: SiTailwindcss },
@@ -144,7 +151,6 @@ const projects = [
       "Next.js 16 (App Router)",
       "Supabase (Auth + DB + Storage)",
       "Tailwind CSS v4",
-      "FullCalendar",
     ],
   },
 ];
@@ -181,13 +187,6 @@ function ProjectModal({ project, onClose }) {
         }}
       />
 
-      <span
-        aria-hidden="true"
-        className="font-display pointer-events-none fixed -top-10 right-0 select-none text-[16rem] leading-none text-white/[0.04] lg:text-[26rem]"
-      >
-        {num}
-      </span>
-
       <div className="relative mx-auto w-full max-w-[1100px] px-15 pt-8 pb-20 lg:px-0">
         <div className="animate-fade-up flex items-center justify-between">
           <button
@@ -196,14 +195,6 @@ function ProjectModal({ project, onClose }) {
             className="font-sans inline-flex items-center gap-2 text-xs font-semibold tracking-wide text-white/50 uppercase transition-colors duration-150 hover:text-white"
           >
             <ArrowLeft size={15} /> Volver a proyectos
-          </button>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Cerrar"
-            className="font-sans inline-flex items-center gap-2 text-xs font-semibold tracking-wide text-white/50 uppercase transition-colors duration-150 hover:text-white"
-          >
-            [ esc ] <X size={16} />
           </button>
         </div>
 
@@ -255,11 +246,7 @@ function ProjectModal({ project, onClose }) {
                     <dt className="font-sans w-10 shrink-0 text-xs font-semibold text-white/35 pt-0.5">
                       {String(i + 1).padStart(2, "0")}
                     </dt>
-                    <dd className="text-white/80">
-                      <span className="text-[#6988ec]">"</span>
-                      {item}
-                      <span className="text-[#6988ec]">"</span>
-                    </dd>
+                    <dd className="text-white/80">{item}</dd>
                   </div>
                 ))}
               </dl>
@@ -303,10 +290,6 @@ function ProjectModal({ project, onClose }) {
                   className="aspect-[3/2] w-full object-cover"
                 />
               </div>
-
-              <p className="font-sans text-xs font-semibold tracking-wide text-white/30 uppercase">
-                fig. {num}.1 — {num}.2 · capturas del proyecto
-              </p>
             </div>
           </div>
         </div>

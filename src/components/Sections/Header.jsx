@@ -32,7 +32,7 @@ export default function Header() {
 
       <div className="animate-fade-up absolute bottom-0 left-0 z-10 flex flex-col gap-4 p-15">
         <p className="font-sans flex items-center gap-2 text-sm font-semibold tracking-wide text-white/80 uppercase">
-          <span className="text-[#c9d5ff]">//</span> Ingeniero de Software
+          <span className="text-[#c9d5ff]">//</span> Desarrollador de Software
         </p>
 
         <h1 className="font-display text-[3.5rem] leading-[1.05] font-light text-white lg:text-[6rem]">
@@ -40,8 +40,8 @@ export default function Header() {
         </h1>
 
         <p className="max-w-[600px] text-lg text-white/70">
-          Diseño y construyo productos digitales de punta a punta — del
-          prototipo al código en producción.
+          Estudiante de Ingeniería en Computación. Construyo aplicaciones
+          web completas, desde el diseño hasta el código en producción.
         </p>
       </div>
 

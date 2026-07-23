@@ -1,10 +1,12 @@
 import imgPerfil from "../../assets/imgPerfil.webp";
 
 const FACTS = [
-  { key: "rol", value: "Ingeniero de Software" },
-  { key: "enfoque", value: "Producto end-to-end" },
-  { key: "stack", value: "React · Node · Postgres" },
-  { key: "estado", value: "Abierto a nuevos proyectos" },
+  { key: "rol", value: "Desarrollador de Software" },
+  { key: "formación", value: "Ing. en Computación, Udelar" },
+  { key: "stack", value: "Next.js / Tailwind CSS / Supabase" },
+  { key: "inglés", value: "Avanzado (C2), Univ. of Michigan" },
+  { key: "ubicación", value: "Montevideo, Uruguay" },
+  { key: "estado", value: "Buscando primera experiencia" },
 ];
 
 export default function AboutMe() {
@@ -26,26 +28,28 @@ export default function AboutMe() {
             </p>
 
             <h2 className="font-display text-4xl leading-[1.15] font-light lg:text-5xl">
-              Convierto problemas complejos en{" "}
+              Convierto ideas en{" "}
               <em className="font-normal text-[#8fa4ef] italic">
-                productos simples
+                interfaces claras
               </em>{" "}
-              de usar.
+              y funcionales.
             </h2>
 
             <p className="mt-8 max-w-xl text-lg leading-8 text-white/60">
-              Soy ingeniero de software con foco en construir aplicaciones
-              completas: desde la idea y el diseño de producto hasta el
-              desarrollo frontend y backend. Me interesa especialmente crear
-              experiencias que la gente realmente use — juegos, hábitos de
-              estudio, e-commerce y herramientas de reserva son algunos de los
-              problemas que me tocó resolver últimamente.
+              Soy estudiante de Ingeniería en Computación en la Universidad de
+              la República y desarrollador de software. Mi formación académica
+              me dio las bases; el resto lo construí de forma autodidacta, con
+              cursos, documentación y proyectos propios que me permitieron
+              trabajar tanto en frontend con React y Next.js como en backend
+              con Node.js. Estoy abierto a distintos roles dentro del
+              desarrollo y busco dar el salto a mi primera experiencia
+              profesional en la industria.
             </p>
 
             <dl className="font-sans mt-10 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm">
               {FACTS.map((fact) => (
                 <div key={fact.key} className="flex gap-4">
-                  <dt className="w-24 shrink-0 text-white/35">{fact.key}</dt>
+                  <dt className="w-28 shrink-0 text-white/35">{fact.key}</dt>
                   <dd className="text-white/80">
                     <span className="text-[#6988ec]">"</span>
                     {fact.value}

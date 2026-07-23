@@ -9,17 +9,18 @@ const EDUCATION = {
 
 const CERTIFICATIONS = [
   {
-    title: "Certificate of Proficiency in English",
-    issuer: "University of Michigan",
-    date: "Dic. 2024",
-    badge: "M",
-  },
-  {
     title: "Certificate of Competency in English",
     issuer: "University of Michigan",
     date: "Dic. 2022",
     badge: "M",
   },
+  {
+    title: "Certificate of Proficiency in English",
+    issuer: "University of Michigan",
+    date: "Dic. 2024",
+    badge: "M",
+  },
+
   {
     title: "The Git & GitHub Bootcamp",
     issuer: "Udemy",
